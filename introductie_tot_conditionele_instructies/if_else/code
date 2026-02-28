@@ -1,0 +1,24 @@
+#include <iostream>
+
+// Function that calculates shipping cost based on package weight
+double calculateShippingCost(double weightKg)
+{
+    double cost;
+
+    if (weightKg <= 2)
+        cost = 5.0;        // Light packages
+    else if (weightKg <= 5)
+        cost = 10.0;        // Medium packages
+    else
+        cost = 20.0;        // Heavy packages
+
+    return cost;
+}
+
+int main()
+{
+    double weight = 13.5;
+    double shippingCost = calculateShippingCost(weight);
+    std::cout << "Shipping cost: $" << shippingCost << std::endl;
+    return 0;
+}

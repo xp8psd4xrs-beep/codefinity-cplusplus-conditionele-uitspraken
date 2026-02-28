@@ -1,0 +1,20 @@
+#include <iostream>
+
+// Function that calculates discount based on total purchase
+double calculateDiscount(double totalPurchase)
+{
+    double discount = 0.0;
+
+    // Apply 30% discount if total purchase is at least 100
+    if (totalPurchase >= 100)
+        discount = totalPurchase * 0.3;
+
+    return discount;
+}
+
+int main()
+{
+    double purchaseAmount = 120.0;
+    double discount = calculateDiscount(purchaseAmount);
+    return 0;
+}

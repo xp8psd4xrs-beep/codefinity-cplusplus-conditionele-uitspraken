@@ -1,40 +1,32 @@
 #include <iostream>
-#include <string>
 
-// Function that calculates parking fee based on car type and zone
-double calculateParkingFee(std::string carType, int zone)
-{
-    double fee = 0.0;
-
-    if (carType == "compact")
+double performOperation(int type, double a, double b) {
+    switch (type) 
     {
-        switch(zone)
-        {
-            case 1:    fee = 5.0; break;
-            case 2: fee = 3.0; break;
-            default:  fee = 4.0; break;
-        }
-    } 
-    else if (carType == "SUV")
-    {
-        switch(zone)
-        {
-            case 1: fee = 8.0; break;
-            case 2: fee = 6.0; break;
-            default:   fee = 7.0; break;
-        }
-    } 
-    else 
-        fee = 0.0;
-
-    return fee;
+        case 1: std::cout << "Adding numbers" << std::endl;
+            return a + b;
+        case 2: std::cout << "Substracting numbers" << std::endl;
+            return a - b;
+        case 3: std::cout << "Multiplying numbers" << std::endl;
+            return a * b;
+        case 4:
+            if (b == 0)
+            {
+                std::cout << "Error: Division by zero" << std::endl;
+                return 0;
+            }
+            std::cout << "Dividing numbers" << std::endl;
+            return a / b;
+        default:
+            std::cout << "Invalid operation type" << std::endl;
+            return 0;
+    }
 }
 
 int main()
 {
-    std::string carType1 = "compact";
-    int zone1 = 1;
-    std::cout << "Parking fee for " << carType1 << " in zone " << zone1 
-              << ": $" << calculateParkingFee(carType1, zone1) << std::endl;
+    double x = 12.0, y = 4.0;
+    int op = 2; // 1-Add, 2-Subtract, 3-Multiply, 4-Divide
+    std::cout << "Result: " << performOperation(op, x, y) << std::endl;
     return 0;
 }

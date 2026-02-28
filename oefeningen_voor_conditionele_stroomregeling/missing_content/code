@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+// Function that calculates parking fee based on car type and zone
+double calculateParkingFee(std::string carType, int zone)
+{
+    double fee = 0.0;
+
+    if (carType == "compact")
+    {
+        switch(zone)
+        {
+            case 1:    fee = 5.0; break;
+            case 2: fee = 3.0; break;
+            default:  fee = 4.0; break;
+        }
+    } 
+    else if (carType == "SUV")
+    {
+        switch(zone)
+        {
+            case 1: fee = 8.0; break;
+            case 2: fee = 6.0; break;
+            default:   fee = 7.0; break;
+        }
+    } 
+    else 
+        fee = 0.0;
+
+    return fee;
+}
+
+int main()
+{
+    std::string carType1 = "compact";
+    int zone1 = 1;
+    std::cout << "Parking fee for " << carType1 << " in zone " << zone1 
+              << ": $" << calculateParkingFee(carType1, zone1) << std::endl;
+    return 0;
+}

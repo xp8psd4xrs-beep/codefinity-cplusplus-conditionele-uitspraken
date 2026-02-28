@@ -1,0 +1,38 @@
+#include <iostream>
+
+float calculateShipping(float weight, float productPrice, int option)
+{
+    float shippingPrice = productPrice * 0.1;
+
+    if (weight > 25)
+    {
+        shippingPrice += 2.25;
+
+        switch (option)
+        {
+            case 1:
+                shippingPrice += 0.3;
+                break;
+            case 2:
+                shippingPrice += 0.5;
+                break;
+            case 3:
+                shippingPrice += 1.75;
+                break;
+            default:
+                break;
+        }
+    }
+
+    return shippingPrice;
+}
+
+int main()
+{
+    float weight = 27.6f;
+    float priceOfProduct = 21.99f;
+    int option = 2;
+    float finalShippingPrice = calculateShipping(weight, priceOfProduct, option);
+    std::cout << "Final shipping price: $" << finalShippingPrice << std::endl;
+    return 0;
+}
